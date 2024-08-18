@@ -1,4 +1,6 @@
-Project # 24 from '25 Projects in React' that I watched.
+# Expense Tracker App
+## using ReactJS, Typescript,Redux toolkit and React Router
+## Project # 24 from '25 Projects in React' that I watched.
 
 This project made me practice more about the redux toolkit and react-router.
 
