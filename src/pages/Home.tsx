@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import Expenses from '../components/Expenses';
 import Modal from '../components/Modal';
+import Transactions from '../components/Transactions';
 import { RootState } from '../reduxStore/store';
 
 export default function Home() {
@@ -22,6 +23,7 @@ export default function Home() {
 				<Modal />
 			</div>
 			<div>
+				{/* <Transactions /> */}
 				<Expenses />
 			</div>
 		</>
