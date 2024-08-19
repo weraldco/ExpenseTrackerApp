@@ -3,8 +3,12 @@ import { IoClose } from 'react-icons/io5';
 import { useDispatch } from 'react-redux';
 import { addExpense } from '../reduxStore/slice/expenseSlice';
 
-export default function Modal() {
-	const [isModalShow, setModalShow] = useState(false);
+type ModalProps = {
+	isModalShow: boolean;
+	onClick: (data: boolean) => void;
+};
+
+export default function Modal({ isModalShow, onClick }: ModalProps) {
 	const [expenseType, setExpenseType] = useState<string>('expense');
 	const [expenseDescription, setDescription] = useState<string>('');
 	const [expenseAmount, setAmout] = useState<string>('');
@@ -21,33 +25,23 @@ export default function Modal() {
 			};
 			dispatch(addExpense(payload));
 			setError('');
-			setModalShow(false);
 			setAmout('');
 			setDescription('');
-			setExpenseType('');
+			onClick(false);
+			setExpenseType('expense');
 		} else {
 			setError('Your form is incomplete. Please fill in all the empty fields');
 		}
 	}
-	function handleCloseModal() {
-		setModalShow((prev) => !prev);
-		setError('');
-	}
+
 	return (
 		<>
-			<button
-				onClick={handleCloseModal}
-				className="bg-blue-500 text-white rounded-full px-3 py-2 absolute right-3 top-3 hover:bg-blue-400 active:bg-blue-600"
-			>
-				Add new expenses
-			</button>
-
 			{isModalShow && (
 				<>
 					<div className="grid place-items-center absolute h-screen w-screen">
 						<div className=" w-[450px] absolute bg-white z-50 p-5 top-20  rounded-lg">
 							<button
-								onClick={handleCloseModal}
+								onClick={() => onClick(false)}
 								className=" absolute top-4 right-4 text-xl"
 							>
 								<IoClose></IoClose>
@@ -78,7 +72,7 @@ export default function Modal() {
 										onChange={(e) => setAmout(e.target.value)}
 									/>
 								</div>
-								<div className="grid grid-cols-2 place-content-center w-1/2">
+								<div className="grid grid-cols-3 items-start place-items-start w-3/4">
 									<div>
 										<input
 											type="radio"
@@ -101,6 +95,17 @@ export default function Modal() {
 										/>{' '}
 										<label htmlFor="income">Income</label>
 									</div>
+									<div>
+										<input
+											type="radio"
+											name="expense-type"
+											value="planned"
+											id="planned"
+											checked={expenseType === 'planned'}
+											onChange={(e) => setExpenseType(e.target.value)}
+										/>{' '}
+										<label htmlFor="planned">Planned</label>
+									</div>
 								</div>
 								<div className="flex gap-2 place-content-end mt-5">
 									<button
@@ -111,7 +116,7 @@ export default function Modal() {
 									</button>
 									<button
 										className="p-2 text-sm bg-blue-500  text-white rounded-lg"
-										onClick={handleCloseModal}
+										onClick={() => onClick(false)}
 									>
 										Cancel
 									</button>
@@ -120,7 +125,7 @@ export default function Modal() {
 						</div>
 						<div
 							className=" w-screen absolute bg-black top-0 bottom-0 left-0 right-0 z-10 opacity-45"
-							onClick={handleCloseModal}
+							onClick={() => onClick(false)}
 						></div>
 					</div>
 				</>

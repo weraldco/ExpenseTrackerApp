@@ -20,11 +20,13 @@ export default function Home() {
 	return (
 		<>
 			<div className="grid place-content-center relative bg-slate-300 w-full">
-				<Modal />
+				{/* <Modal /> */}
 			</div>
 			<div>
 				{/* <Transactions /> */}
-				<Expenses />
+				<Expenses componentType="expense" />
+				<Expenses componentType="planned" />
+				<Expenses componentType="" />
 			</div>
 		</>
 	);

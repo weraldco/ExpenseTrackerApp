@@ -3,38 +3,33 @@ import { createSlice } from '@reduxjs/toolkit';
 export type ExpenseT = {
 	description: string;
 	amount: number;
-	date: Date;
 	type: string;
 };
 
-// const dummyData = [
-// 	{
-// 		description: 'Macbook Pro',
-// 		amount: 60000,
-// 		date: `Sun Aug 18 2024 15:55:28 GMT+0800 (Philippine Standard Time)`,
-// 		type: 'expenses',
-// 	},
-// 	{
-// 		description: 'Keyboard',
-// 		amount: 2000,
-// 		date: `Sun Aug 18 2024 15:55:28 GMT+0800 (Philippine Standard Time)`,
-// 		type: 'expenses',
-// 	},
-// 	{
-// 		description: 'Mouse',
-// 		amount: 3500,
-// 		date: `Sun Aug 18 2024 15:55:28 GMT+0800 (Philippine Standard Time)`,
-// 		type: 'expenses',
-// 	},
-// 	{
-// 		description: 'March Salary',
-// 		amount: 53000,
-// 		date: `Sun Aug 18 2024 15:55:28 GMT+0800 (Philippine Standard Time)`,
-// 		type: 'income',
-// 	},
-// ];
+const dummyData = [
+	{
+		description: 'Macbook Pro',
+		amount: 60000,
+		type: 'expense',
+	},
+	{
+		description: 'Keyboard',
+		amount: 2000,
+		type: 'expense',
+	},
+	{
+		description: 'Mouse',
+		amount: 3500,
+		type: 'expense',
+	},
+	{
+		description: 'March Salary',
+		amount: 53000,
+		type: 'income',
+	},
+];
 
-const initialState: ExpenseT[] = [];
+const initialState: ExpenseT[] = dummyData;
 
 const expenseSlice = createSlice({
 	name: 'expense',
