@@ -27,6 +27,11 @@ const dummyData = [
 		amount: 53000,
 		type: 'income',
 	},
+	{
+		description: '15 Salary',
+		amount: 6000,
+		type: 'income',
+	},
 ];
 
 const initialState: ExpenseT[] = dummyData;
