@@ -8,15 +8,15 @@ type ExpenseProps = {
 	componentType: string;
 };
 export default function Expenses({ componentType }: ExpenseProps) {
-	const showModal = useSelector((state) => state.modal);
-	console.log(showModal);
+	// const showModal = useSelector((state) => state.modal);
+	// // console.log(showModal);
 	const [isModalShow, setModalShow] = useState(false);
 	const data = useSelector((state: RootState) => state.expense);
 	const collectionOfExpenses =
 		componentType != ''
 			? data.filter((item) => item.type === componentType)
 			: data;
-	console.log(collectionOfExpenses);
+	// console.log(collectionOfExpenses);
 	function handleCloseModal(data: boolean) {
 		setModalShow(data);
 	}

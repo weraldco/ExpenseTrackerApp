@@ -20,7 +20,7 @@ export default function Modal({ isModalShow, onClick }: ModalProps) {
 			const payload = {
 				description: expenseDescription,
 				amount: Number(expenseAmount),
-				date: new Date(),
+				// date: new Date(),
 				type: expenseType,
 			};
 			dispatch(addExpense(payload));
