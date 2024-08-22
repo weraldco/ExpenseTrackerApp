@@ -10,7 +10,7 @@ export type ExpenseT = {
 const dummyData = [
 	{
 		description: 'Macbook Pro',
-		amount: 60000,
+		amount: 10000,
 		type: 'expense',
 	},
 	{

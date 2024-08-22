@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { GrAddCircle } from 'react-icons/gr';
 import { useSelector } from 'react-redux';
+import ExpenseChart from '../components/ExpenseChart';
 import Expenses from '../components/Expenses';
 import Modal from '../components/Modal';
 import TotalAmountCard from '../components/TotalAmountCard';
@@ -25,7 +26,8 @@ export default function Home() {
 	return (
 		<>
 			<Modal onClick={handleCloseModal} isModalShow={isModalShow} />
-			<div className="p-5 grid place-content-center ">
+
+			<div className="p-5 grid grid-cols-2 place-content-center ">
 				<div className="grid place-content-center gap-2 relative">
 					<div className=" absolute top-0 rounded-full px-3 py-[.3rem]  border-gray-600 border-[2px]">
 						<UserBalance />
@@ -37,6 +39,7 @@ export default function Home() {
 						<GrAddCircle />
 						<span className="-ml-10">Transaction</span>
 					</button>
+
 					<div className="grid grid-cols-2 mt-12 gap-2 place-items-center">
 						<TotalAmountCard type="spending" amount={totalSpending} />
 						<TotalAmountCard type="income" amount={totalIncome} />
@@ -44,6 +47,9 @@ export default function Home() {
 					<div>
 						<Expenses componentType="" />
 					</div>
+				</div>
+				<div className="w-[400px] h-[400px] grid place-items-center">
+					<ExpenseChart />
 				</div>
 			</div>
 		</>
